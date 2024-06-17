@@ -1,6 +1,5 @@
 import { Component ,OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import { NgModel } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FleetsearchService } from 'src/app/service/fleet.service';
 import Swal from 'sweetalert2';

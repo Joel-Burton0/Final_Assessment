@@ -1,0 +1,21 @@
+<div class="car-catalog">
+    <div class="container">
+     <div class="car-card">
+            <img src="http://localhost:8888/uploads/{{rental['img']}}" class="car-image">
+
+        <div class="info">
+            <h1 class="car-model"> {{rental['name']}}</h1>
+
+            <h1  class="car-description">{{rental['description']}}</h1>
+
+            <h1 class="car-price"> Price: {{rental['price']}}</h1>
+            
+            <h1 class="car-status"> Status: {{rental['status']}}</h1>
+
+             <a routerLink="/booking/{{rental['id']}}" *ngIf="rental['status'] =='available'" ><button class="cta-button">Rent Now</button></a>  
+             <a *ngIf="rental['status'] !='available'" >Rented</a>  
+        </div>
+    </div>
+    </div>
+
+</div>

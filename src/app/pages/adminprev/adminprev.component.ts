@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from'src/app/service/auth.service';
 import { FleetsearchService } from 'src/app/service/fleet.service';
 
 
@@ -10,8 +11,10 @@ import { FleetsearchService } from 'src/app/service/fleet.service';
 })
 export class AdminprevComponent implements OnInit{
 
-  constructor(private fleetService: FleetsearchService, private http: HttpClient){}
+  constructor(private fleetService: FleetsearchService, private http: HttpClient,
+    private authservice: AuthService){}
   rentals: any = [];
+  
   
   ngOnInit(): void {
     this.fetchRentals();

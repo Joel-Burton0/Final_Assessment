@@ -13,7 +13,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FleetComponent } from './pages/fleet/fleet.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AdminprevComponent } from './pages/adminprev/adminprev.component';
@@ -23,13 +23,15 @@ import { UpdateFileComponent } from './pages/adminprev/update-file/update-file.c
 
 import { AuthComponent } from './auth/auth.component';
 import { BookingComponent } from './pages/booking/booking.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactService } from './service/contact.service';
-
-
-
-
+import { UserprofileComponent } from './pages/userprofile/userprofile.component';
+import { InterceptorInterceptor } from './shared/interceptor.interceptor';
+import { DeleteComponent } from './reservation/delete/delete.component';
+import { UpdateComponent } from './reservation/update/update.component';
+import { ViewComponent } from './reservation/view/view.component';
+import { ReservationComponent } from './reservation/reservation/reservation.component';
+import { VehiclepageComponent } from './pages/vehiclepage/vehiclepage.component';
 
 
 
@@ -52,6 +54,12 @@ import { ContactService } from './service/contact.service';
        UpdateFileComponent,
        AuthComponent,
        BookingComponent,
+       UserprofileComponent,
+       DeleteComponent,
+       UpdateComponent,
+       ViewComponent,
+       ReservationComponent,
+       VehiclepageComponent,
        
   
   ],
@@ -60,12 +68,11 @@ import { ContactService } from './service/contact.service';
     AppRoutingModule,
     HttpClientModule,
       FormsModule,
-      ReactiveFormsModule,
-      
-
+      ReactiveFormsModule
+    
   ],
   providers: [
-    ContactService
+    {provide: HTTP_INTERCEPTORS , useClass:InterceptorInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

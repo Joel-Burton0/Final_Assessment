@@ -1,24 +1,27 @@
 <div class="car-catalog">
+  <h1 class="catalog-title">Our Car Catalog</h1>
     <div class="container">
-      <h1 class="catalog-title">Our Car Catalog</h1>
-      <div class="car-card" *ngFor="let car of cars">
-        <img [src]="car.image" alt="{{car.model}}" class="car-image">
-        <div class="car-details">
-          <h2 class="car-model">{{car.model}}</h2>
-          <p class="car-description">{{car.description}}</p>
-          <p class="car-price">Price: {{car.price}}</p>
-          <a routerLink="/booking"><button class="cta-button">Rent Now</button></a>
-        </div>
-      </div>
       <div class="car-card" *ngFor="let fleet of fleets">
         <img src="http://localhost:8888/uploads/{{fleet['img']}}" class="car-image" > 
         <div class="car-details">
           <h2 class="car-model">{{fleet['name']}}</h2>
           <p class="car-description">{{fleet['description']}}</p>
           <p class="car-price">Price: {{fleet['price']}}</p>
-          <a routerLink="/booking"><button class="cta-button">Rent Now</button></a>
+          <a routerLink="/vehicle/{{fleet['id']}}"><button class="cta-button">Rent Now</button></a>
+        </div>
+        
+      </div>
+      <div class="car-card" *ngFor="let car of cars">
+        <img [src]="car.image" alt="{{car.model}}" class="car-image">
+        <div class="car-details">
+          <h2 class="car-model">{{car.model}}</h2>
+          <p class="car-description">{{car.description}}</p>
+          <p class="car-price">Price: {{car.price}}</p>
+          <a routerLink="/vehicle"><button class="cta-button">Rent Now</button></a>
+        
         </div>
       </div>
+      
     </div>
   </div>
 

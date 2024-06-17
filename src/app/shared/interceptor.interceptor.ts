@@ -17,7 +17,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
     if(this.authService.isLoggedIn()){
       let myRequest = request.clone({
         setHeaders:{
-          Authorization:`Bearer ${this.authService.getToken}`
+          Authorization:`Bearer ${this.authService.getToken()}`
         }
       });
       return next.handle(myRequest);

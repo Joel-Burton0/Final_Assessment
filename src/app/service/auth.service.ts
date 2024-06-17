@@ -7,22 +7,22 @@ import { environment } from 'src/enviroment/environment';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * @description Function to save any item to the local storage
+ * @param key The unique identifier for the item to be stored
+ * @param value The data to be stored
+ */
 export class AuthService {
 
-  constructor( private _http: HttpClient) { }
+  constructor( private http: HttpClient) { }
   private API_URL = environment.api_url + '/api/v1/auth';
-
-  public authToken?: string;
   private tokenkey: string = 'authToken';
-  public currentUser?: any;
+  
+  public authToken?: string;
+  public currentuser?: any;
   
   loginState?: boolean;
 
-  /**
-   * @description Function to save any item to the local storage
-   * @param key The unique identifier for the item to be stored
-   * @param value The data to be stored
-   */
   private _saveToStorage(key: string, value: any){
     localStorage.setItem(key, value);
   }
@@ -41,21 +41,21 @@ export class AuthService {
   }
   
   getCurrentUser(cb?: () => void){
-    this.getProfile().subscribe((res) =>{
+    this.getThisUser().subscribe((res) =>{
       if(res['status'] === 'success'){
-        this.currentUser = res.data!['user']
+        this.currentuser = res.data!['user'];
         if(cb) cb();
       }
     })
   }
-
-  getProfile(): Observable<any>{
-    return this._http.get<any>(this.API_URL + '/my-profile')
-      .pipe(
-        map((res) =>{
-          return res;
-        })
-      );
+  
+  getThisUser(): Observable<any>{
+    return this.http.get<any>(this.API_URL + '/my-profile')
+    .pipe(
+      map((res) =>{
+        return res;
+      })
+    );
   }
 
   /**
@@ -63,8 +63,8 @@ export class AuthService {
    * @returns Observable<any>
    */
 
-  getAllUsers(): Observable<any>{
-    return this._http.get<any>(this.API_URL + '/all-users')
+  getAllUsers():Observable<any>{
+    return this.http.get<any>(this.API_URL + '/all-users')
       .pipe(
         map((res) =>{
           return res;
@@ -73,8 +73,8 @@ export class AuthService {
   }
 
   // Register User
-  newUser(data: any): Observable<any>{
-    return this._http.post(this.API_URL + '/register', data)
+  newUser(data: any):Observable<any>{
+    return this.http.post<any>(this.API_URL + '/register', data)
         .pipe(
           map((res) =>{
             return res;
@@ -84,7 +84,7 @@ export class AuthService {
 
   // Login User
   loginUser(data: any): Observable<any>{
-    return this._http.post(this.API_URL + '/login', data)
+    return this.http.post<any>(this.API_URL + '/login', data)
         .pipe(
           map((res) =>{
             console.log(JSON.stringify(res));

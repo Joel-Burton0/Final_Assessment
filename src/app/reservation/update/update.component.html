@@ -1,0 +1,15 @@
+<div class="FormContainer">
+    <button class="backbtn" routerLink="/Admin">Back</button>
+    <div class="formBox">
+        <form (ngSubmit)="updatebooking(bookingform)" #bookingform="ngForm">
+            <input type="text" ngModel name="Fname" >
+            <input type="text" ngModel name="Lname" >
+            <input type="text" ngModel name="vehicle_nm" >
+            <input type="text" ngModel name="TRN" >
+            <input type="date" ngModel name="rentdate" >
+            <input type="date" ngModel name="returndate" >
+
+            <input type="submit" value="Update" >
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<table border="2">
+<thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Vehicle Name</td>
+        <td>TRN</td>
+        <td>Rent Date</td>
+        <td>Return Date</td>
+        <td>Action</td>  
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let reserve of reserves">
+        <td>{{reserve['Fname']}}</td>
+        <td>{{reserve['Lname']}}</td>
+        <td>{{reserve['vehicle_nm']}}</td>
+        <td>{{reserve['TRN']}}</td>
+        <td>{{reserve['rentdate']}}</td>
+        <td>{{reserve['returndate']}}</td>
+        <td>
+            <a routerLink="/viewbooking/{{reserve['id']}}">View</a> |
+            <a routerLink="/deleteres/{{reserve['id']}}">Delete</a>|
+            <a routerLink="/updateres/{{reserve['id']}}">Update</a>
+        </td>
+
+    </tr>
+
+</tbody>
+
+</table>

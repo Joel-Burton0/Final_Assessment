@@ -13,7 +13,7 @@ export class HomeComponent {
   ];
 
   fleet = [
-    { model: 'Tesla Model 3', description: 'Experience the future of driving.', image: '/assets/images/Tesla_M_3.jpg' },
+    { model: 'Tesla Model 3', description: 'Experience the future of driving.', image: '/assets/images/Tesla_M_3.jpeg' },
     { model: 'Nissan Leaf', description: 'Eco-friendly and efficient.', image: '/assets/images/Nissan-Leaf.jpg' },
     { model: 'M235i xDrive Gran Coupe', description: 'TwinPower Turbo inline 4-cylinder', image: '/assets/images/BMW-Series-Gran-Coupe.jpeg' }
   ];

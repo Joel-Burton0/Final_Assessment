@@ -1,6 +1,8 @@
 import { Component,OnInit} from '@angular/core';
 import { FleetsearchService } from 'src/app/service/fleet.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-fleet',
@@ -8,19 +10,23 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./fleet.component.css']
 })
 export class FleetComponent implements OnInit{
-  constructor(private authservice:AuthService,private fleetsearchService:FleetsearchService) {}
+  constructor(private authservice:AuthService,private fleetsearchService:FleetsearchService,private router:Router,
+    private route: ActivatedRoute
+  ) {}
   fleets:any = [];
+  
 
   ngOnInit(): void {
-    this.fetchFleet();  
+    this.fetchFleet(); 
   }
   fetchFleet(){
     this.fleetsearchService.getfleet().subscribe(res =>{
       if(res['status']== 'success'){
         this.fleets =res['data']['fleets'];
       }
-    })
-  };
+    });
+
+  }
 
   // Hard Coded Fleet Vehicles 
   cars = [
@@ -28,7 +34,7 @@ export class FleetComponent implements OnInit{
       model: 'Tesla Model 3',
       description: 'Experience the future of driving with Tesla Model 3.',
       price:'$20,000',
-      image: '/assets/images/Tesla_M_3.jpg'
+      image: '/assets/images/Tesla_M_3.jpeg'
     },
     {
       model: 'Nissan Leaf',

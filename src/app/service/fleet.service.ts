@@ -60,5 +60,13 @@ updatevehicle(id:number, data:any):Observable<any>{
         })
       )
   }
+  availableRental(id:number,data:any):Observable<any> {
+    return this._http.patch<any>(this.API_URL + `/available/${id}`, data)
+      .pipe(
+        map((res ) =>{
+          return res
+        })
+      );
+  }
   
 }

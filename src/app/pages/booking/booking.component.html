@@ -1,27 +1,30 @@
 <div class="createReservationContainer">
-  <div class="formContainer">
+  <div class="formContainer"[formGroup]="form" >
       <form (ngSubmit)="bookingRental(rentalForm)" #rentalForm="ngForm">
           
-          <label for="first_name">First Name</label><br>
-          <input type="text" ngModel name="first_name" placeholder="First Name"><br><br>
+
+          <label for="Fname">First Name:</label><br>
+          <h3> {{users['first_nm']}}</h3>
           
-          <label for="last_name">Last Name</label><br>
-          <input type="text" ngModel name="last_name" placeholder="Last Name">
-          <br>
-          <br>
-          <label for="rental_id">Vehicle</label><br>
-          <select name="rental_id" ngModel>
-              <option value="">Select one</option>
-              <option name="rental_id" *ngFor="let rental of rentals">
-                  {{rental['name']}}
-              </option> 
-          </select><br><br>
-      
-          <label for="TRN">TRN</label><br> 
-          <input type="text" ngModel name="TRN" placeholder="TRN "><br><br>
+          <label for="Lname">Last Name:</label><br>
+          <h3> {{users['last_nm']}}</h3>  
           
+          <label for="vehicle_nm">Vehicle:</label><br>
+          <h3>{{rentals['name']}}</h3>
+          
+          <label for="status">Status:</label><br>
+          <h3> {{rentals['status']}}</h3>
+          
+          <label for="TRN">TRN:</label><br> 
+          <input type="text" ngModel name="TRN" placeholder="TRN ">
+          
+          <label for="rentdate">Rent Date:</label><br> 
+          <input type="date" ngModel name="rentdate" placeholder="rentdate ">
       
-          <input type="submit" value="Book" class="btn">
+          <label for="return">Return Date:</label><br> 
+          <input type="date" ngModel name="returndate" placeholder="returndate ">
+            
+          <input  type="submit" value="Submit" class="btn">
       </form>
   </div>
 </div>

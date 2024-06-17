@@ -102,3 +102,17 @@
   .main-content p {
     font-size: medium;
   } 
+  h1{
+    font-size: large;
+    font-weight: bold;
+  }
+  #delete{
+    color: #fff;
+    font-weight: bolder;
+    font-size: larger;
+  }
+  #update{
+    color: #fff;
+    font-weight: bolder;
+    font-size: larger;
+  }

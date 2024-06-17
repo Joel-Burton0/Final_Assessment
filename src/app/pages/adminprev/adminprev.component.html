@@ -10,6 +10,9 @@
       <ul>
         <i><a routerLink="/create-file">Add to Fleet</a></i>
       </ul>
+      <ul>
+        <i><a routerLink="/reservation">Users</a></i>
+      </ul>
     </aside>
     <main class="main-content">
       <section id="dashboard">
@@ -29,9 +32,9 @@
                     </div>
                     <div class="actions">
                         <div class="actionBox">
-                            <a routerLink="/update/{{rental['id']}}">Update |</a> <br>
+                            <a routerLink="/update/{{rental['id']}}" id="update">Update </a> <br>
                             <hr>  <hr>
-                            <a routerLink="/remove/{{rental['id']}}">| Delete</a>
+                            <a routerLink="/remove/{{rental['id']}}" id="delete"> Delete</a>
                         </div>
                     </div>
         </div>  
