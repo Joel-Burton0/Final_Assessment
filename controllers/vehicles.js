@@ -108,3 +108,21 @@ res.status(200).json({
 });  
 }
 }
+
+export const availableRental = async(req, res,_next) => {
+    
+    let rental = await pool.query(`
+     UPDATE fleet SET status = 'not available' where id = ${req.params.id}`);
+     if(rental.affectedRows <= 0){
+        res.status(400).json({
+            status: 'error',
+            message: 'Unable To Update record'
+     
+        });
+    }else{
+    res.status(200).json({
+            status: 'success',
+            affectedRows:  rental.affectedRows 
+        });  
+    }
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import { getfleet,getvehicle, addvehicle, updatevehicle, deletevehicle } from '../controllers/vehicles.js';
+import { getfleet,getvehicle, addvehicle, updatevehicle, deletevehicle, availableRental } from '../controllers/vehicles.js';
 
 export const fleetRouter = express.Router();
 
@@ -9,3 +9,4 @@ fleetRouter.get('/getvehicle/:id', getvehicle);
 fleetRouter.post('/addvehicle', addvehicle);
 fleetRouter.patch('/updatevehicle/:id', updatevehicle);
 fleetRouter.delete('/deletevehicle/:id', deletevehicle);
+fleetRouter.patch('/available/:id',availableRental)

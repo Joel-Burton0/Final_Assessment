@@ -6,5 +6,5 @@ authRouter.post('/register', registerUser);
 authRouter.post('/login', loginUser);
 
 authRouter.use(protect);
-authRouter.get('/all-users', getAllUsers);
-authRouter.get('/my-profile', getThisUser);
+authRouter.get('/all-users',getAllUsers);
+authRouter.get('/my-profile',getThisUser);
